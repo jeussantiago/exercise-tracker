@@ -52,6 +52,20 @@ app.post(create_person_api, function(req, res, next) {
   })
 })
 
+//lookup al the users in the database
+var getAllData = m.getAllData;
+var person_api = "/api/exercise/users"
+app.post(person_api, function(req, res, next) {
+  getAllData(function(err, data) {
+    var users = data.map(function(person_log) {
+      console.log(person_log.name != null)
+      if (person_log.name != null) {
+        return person_log.name
+      }
+    }).slice(1, data.length) //there is a null at the beginning
+    res.json([...new Set(users)]);
+  })
+})
 
 //update the user exercise array
 var addExercise = m.addExercise;
@@ -91,9 +105,8 @@ app.post(exercise_update_api , function(req, res, next) {
 
 //query to find person's exercise log by their username
 var FindPersonLogs = m.FindPersonLogs;
-var person_log_lookup_api ="/api/exercise/user-log"
+var person_log_lookup_api ="/api/exercise/log"
 app.post(person_log_lookup_api, function(req, res, next) {
-  console.log(req.body)
   var username = req.body.username //get form submit data username //INSERT HERE THE USER ID WHEN READING THE FORM
   FindPersonLogs(username, function(err, data) {
     if(err) { return (next(err)); } 
@@ -129,7 +142,8 @@ app.post(person_log_lookup_api, function(req, res, next) {
       }
     })
     //get only subset of data if specified by the user
-    var limit = req.body.limit;
+    var limit = req.body.limit || user_exercise_data.length;
+    console.log(limit)
     if (limit < user_exercise_data.length) {
       user_exercise_data = user_exercise_data.slice(0, limit);
     } 

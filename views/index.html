@@ -17,6 +17,11 @@
             <input id="uname" type="text" name="username" placeholder="username" required>
             <input type="submit" value="Submit">
           </form>
+          <form action="/api/exercise/users" method="post">
+            <h3>See all Users</h3>
+            <p><code>POST /api/exercise/users</code></p>
+            <input type="submit" value="Submit">
+          </form>
           <form action="/api/exercise/add" method="post">
             <h3>Add exercises</h3>
             <p><code>POST /api/exercise/add</code></p>
@@ -26,9 +31,9 @@
             <input id="dat" type="date" name="date" required>
             <input type="submit" value="Submit">
           </form>
-          <form action="/api/exercise/user-log" method="post">
+          <form action="/api/exercise/log" method="post">
             <h3>See user Exercise Log</h3>
-            <p><code>POST /api/exercise/user-log</code></p>
+            <p><code>POST /api/exercise/log</code></p>
             <input id="username-log" type="text" name="username" placeholder="username" required>
             <input id="dateStart" type="date" name="dateStart">
             <input id="dateEnd" type="date" name="dateEnd">
