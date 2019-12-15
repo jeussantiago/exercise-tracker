@@ -93,6 +93,7 @@ app.post(exercise_update_api , function(req, res, next) {
 var FindPersonLogs = m.FindPersonLogs;
 var person_log_lookup_api ="/api/exercise/user-log"
 app.post(person_log_lookup_api, function(req, res, next) {
+  console.log(req.body)
   var username = req.body.username //get form submit data username //INSERT HERE THE USER ID WHEN READING THE FORM
   FindPersonLogs(username, function(err, data) {
     if(err) { return (next(err)); } 
@@ -109,6 +110,30 @@ app.post(person_log_lookup_api, function(req, res, next) {
            : (a.date > b.date) ? -1
            :   0;
     })
+    //filter exercise date by the dates specified
+    var startDate = req.body.dateStart || 0;
+    var endDate = req.body.dateEnd || 0;
+    user_exercise_data = user_exercise_data.filter(function(log) {
+      if ( startDate && endDate ) {
+        //both dates given
+        return log.date >= startDate && log.date <= endDate
+      } else if (startDate && !endDate) {
+        //start date given only
+        return log.date >= startDate
+      } else if (!startDate && endDate) {
+        //end date given only
+        return log.date <= endDate
+      } else {
+        //no dates specified - return all dates
+        return log
+      }
+    })
+    //get only subset of data if specified by the user
+    var limit = req.body.limit;
+    if (limit < user_exercise_data.length) {
+      user_exercise_data = user_exercise_data.slice(0, limit);
+    } 
+    //log json to page
     res.json(user_exercise_data);
   }) 
 })
