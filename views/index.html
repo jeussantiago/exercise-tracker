@@ -10,36 +10,56 @@
 
    <body>
       <div class="container">
-         <h1>Exercise tracker</h1>
-          <form action="/api/exercise/new-user" method="post">
-            <h3>Create a New User</h3>
-            <p><code>POST /api/exercise/new-user</code></p>
-            <input id="uname" type="text" name="username" placeholder="username" required>
-            <input type="submit" value="Submit">
-          </form>
-          <form action="/api/exercise/users" method="post">
-            <h3>See all Users</h3>
-            <p><code>POST /api/exercise/users</code></p>
-            <input type="submit" value="Submit">
-          </form>
-          <form action="/api/exercise/add" method="post">
-            <h3>Add exercises</h3>
-            <p><code>POST /api/exercise/add</code></p>
-            <input id="uid" type="text" name="userId" placeholder="userId" required>
-            <input id="desc" type="text" name="description" placeholder="description" required>
-            <input id="dur" type="number" name="duration" placeholder="duration (mins.)" required>
-            <input id="dat" type="date" name="date" required>
-            <input type="submit" value="Submit">
-          </form>
-          <form action="/api/exercise/log" method="post">
-            <h3>See user Exercise Log</h3>
-            <p><code>POST /api/exercise/log</code></p>
-            <input id="username-log" type="text" name="username" placeholder="username" required>
-            <input id="dateStart" type="date" name="dateStart">
-            <input id="dateEnd" type="date" name="dateEnd">
-            <input id="limit" type="number" name="limit" placeholder="# of logs to see">
-            <input type="submit" value="Submit">
-          </form>
+        <h1>Exercise tracker</h1>
+        <h2><em>(a Free Code Camp inspired project)</em></h2>
+        <div class="row">
+          <div class="newUserContainer">
+            <form action="/api/exercise/new-user" method="post" class="userForm">
+              <h3>Create a New User</h3>
+<!--               <p><code>POST /api/exercise/new-user</code></p> -->
+              <input id="uname" type="text" name="username" placeholder="username" required>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+          <div class="allUserContainer">
+            <form action="/api/exercise/users" method="post" class="userForm">
+              <h3>See all Users</h3>
+<!--               <p><code>POST /api/exercise/users</code></p> -->
+              <input type="submit" value="Go">
+            </form>
+          </div>
+          <div class="col">
+            <form action="/api/exercise/add" method="post" class="exerciseForm addExercieForm">
+              <h3>Add exercises</h3>
+<!--               <p><code>POST /api/exercise/add</code></p> -->
+              <label for="uid">User ID</label>
+              <input id="uid" type="text" name="userId" placeholder="userId" required>
+              <label for="desc">Activity description</label>
+              <input id="desc" type="text" name="description" placeholder="description" required>
+              <label for="dur">Activity duration</label>
+              <input id="dur" type="number" name="duration" placeholder="duration (mins.)" required>
+              <label for="dat">Date</label>
+              <input id="dat" type="date" name="date" required>
+              <input type="submit" value="Submit">
+            </form>
+            <form action="/api/exercise/log" method="post" class="exerciseForm">
+              <h3>See user Exercise Log</h3>
+<!--               <p><code>POST /api/exercise/log</code></p> -->
+              <label for="username-log">Username</label>
+              <input id="username-log" type="text" name="username" placeholder="username" required>
+              <label for="dateStart">Date start</label>
+              <input id="dateStart" type="date" name="dateStart">
+              <label for="dateEnd">Date End</label>
+              <input id="dateEnd" type="date" name="dateEnd">
+              <label for="limit">Number of entries to query</label>
+              <input id="limit" type="number" name="limit" placeholder="# of logs to see">
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+          
+         
+          
       </div>
    </body>
 

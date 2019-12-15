@@ -1,4 +1,9 @@
 
+:root {
+  --submit-color: #34495e;
+  --submit-hover-color: #f39c12;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -7,12 +12,19 @@ body {
   font-family:sans-serif;
   margin: 25px;
   color: #222;
-  background-color: #f5f5f5;
+  background-color: #ecf0f1;
 }
 
 h1 {
   font-weight: bold;
-  
+  margin-bottom: 5px;;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 17px;
+  margin-top: 0;
+  margin-bottom: 30px;
 }
 
 .bold {
@@ -23,37 +35,85 @@ p {
   max-width: 900px;
 }
 
-form {
-  margin-bottom: 25px;
-  padding: 15px;
-  background-color: #87D37C;
-  display: inline-block;
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.col {
+  text-align: center;
   width: 100%;
-  max-width: 340px;
-  border-radius: 5px;
+
+}
+
+.newUserContainer, .allUserContainer{
+  width: 605px;
+  max-width: 100%;
+  min-width: 300px;
+
+}
+
+.userForm {
+  width: 100%;
+  height: auto;
+}
+
+.exerciseForm {
+  width: 300px;
+  height: 400px;
+}
+
+.addExercieForm {
+/*   transform: translateY(-5px); */
+}
+
+label {
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+
+form {
+  margin-bottom: 18px;
+  padding: 10px;
+  background-color: #3498db;
+  display: inline-block;
+  border-radius: 10px;
+  text-align: center;
 }
 
 input {
   display: block;
   margin-bottom: 10px;
+  height: 35px;
   padding: 5px;
   width: 100%;
-  border: 1px solid lightgrey;
+  border: 1px solid r;
   border-radius: 3px;
   font-size: 16px;
 }
 
 input[type=submit] {
   font-size: 16px;
+  font-weight: 600;
+  color: #fff;
   border-radius: 3px;
-  background-color: #E4F1FE;
-  border: 1px solid grey;
-  box-shadow: 2px 2px #999;
+  background-color: var(--submit-color);
+  border: 1px solid var(--submit-color);
+  box-shadow: 3px 3px #999;
   cursor: pointer;
 }
 
 input[type=submit]:hover {
-  background-color: #FFFEC4;
+  background-color: var(--submit-hover-color);
+  border: 1px solid var(--submit-hover-color);
+}
+
+h3 {
+  color: #fff;
+  font-size: 20px;
 }
 
 code {
