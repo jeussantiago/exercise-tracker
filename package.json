@@ -1,0 +1,29 @@
+{
+  "name": "hello-express",
+  "version": "0.0.1",
+  "description": "Mongo Testing",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.12.4",
+		"body-parser": "^1.15.2",
+    "mongodb": "^3.1.6",
+    "mongoose": "^5.2.15",
+    "cors": "^2.8.1",
+		"shortid": "^2.2.6"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
