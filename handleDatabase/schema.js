@@ -56,9 +56,26 @@ var findPersonById = function(userId, done) {
   })
 }
 
+//get all the data in the database
+var getAllData = function(done) {
+  Person.find({}, function(err, data) {
+    if (err) { return done(err) } 
+    return done(null, data)
+  })
+}
+
+
+// var removeById = function(personId, done) {
+//   Person.findByIdAndRemove(personId, (err, data) => {
+//     if(err) return done(err)
+//     return done(null, data)
+//   })
+// };
 
 //export
 exports.createPerson = createPerson;
 exports.addExercise = addExercise;
 exports.FindPersonLogs = FindPersonLogs;
 exports.findPersonById = findPersonById;
+exports.getAllData = getAllData;
+// exports.removeById = removeById;
